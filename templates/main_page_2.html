@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сотрудники</title>
+</head>
+<body>
+<h1> Сотрудники </h1>
+{%- for em in employees %}
+
+    <strong> id: </strong> {{ em.id }}.   <br>
+    <strong> ФИО: </strong> {{ em.fullname }}.   <br>
+    <strong> Должность: </strong> {{ em.position }}. <br>
+    <strong> Дата:  </strong> {{ em.date }}. <br>
+    <strong> Оклад: </strong> {{ em.salary }}. <br>
+    <strong> Начальник: </strong> {{ em.boss_id }}. <br>
+    <strong> Level: </strong> {{ em.level }}. <br>
+
+   <br>
+
+
+{%- endfor %}
+</ul>
+</li>
+
+</body>
+</html>
