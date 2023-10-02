@@ -1,44 +1,52 @@
 from flask_seeder import Seeder, Faker, generator
-from flask_seeder.generator import read_resource, Generator
+from flask_seeder.generator import Generator
 
 from logic import Employee_logic
 
-AMOUNT = 50
+
+AMOUNT = 50  #количество генерируемых seeder'ом работников
 
 
 class MyPosition(Generator):
-  """ Random Name generator """
-
+  """ генератор должностей из моего файла """
   def __init__(self, **kwargs):
     super().__init__(**kwargs)
     self._lines = None
 
   def generate(self):
-    """ Generate a random name
+      if self._lines is None:
+          file = open('data/positions.txt', encoding='utf-8')
+          self._lines = file.readlines()
+          file.close()
+      result = self.rnd.choice(self._lines)
+      return result
 
-    Returns:
-        A random name in string format
-    """
-    if self._lines is None:
-      self._lines = read_resource("names/positions.txt")
 
-    result = self.rnd.choice(self._lines)
+class MyName(Generator):
+  """ генератор имен из моего файла """
+  def __init__(self, **kwargs):
+    super().__init__(**kwargs)
+    self._lines = None
 
-    return result
+  def generate(self):
+      if self._lines is None:
+          file = open('data/names.txt', encoding='utf-8')
+          self._lines = file.readlines()
+          file.close()
+      result = self.rnd.choice(self._lines)
+      return result
+
 class DemoSeeder(Seeder):
   def run(self) -> object:
-    # Create a new Faker and tell it how to create User objects
     faker = Faker(
       cls=Employee_logic,
       init={
-        "fullname": generator.Name(),
+        "fullname": MyName(),
         "position": MyPosition(),
         "salary": generator.Integer(start=800, end=10000),
-        "boss_id": generator.Integer(start=1, end=6)
-      }
+        "boss_id": generator.Integer(start=3, end=7)
+        }
     )
 
-    # Create 10 users
     for user in faker.create(AMOUNT):
-      print("Adding user: %s" % user)
       user.add_employee()

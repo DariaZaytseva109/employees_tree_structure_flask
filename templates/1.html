@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>success</title>
+    <title>Список сотрудников</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
 </head>
 <body>
+<header>
+<h1>Список сотрудников</h1>
+  </header>
+<br>
+
+<a class="btn btn-primary" href= "{{ url_for('show') }}" role="button"> К иерархии </a>
+<br><br>
+
+<table class="table" >
+  <thead>
+    <tr class="table-primary">
+      <th scope="col">id</th>
+      <th scope="col">ФИО</th>
+      <th scope="col">Должность</th>
+      <th scope="col">Дата приема на работу</th>
+      <th scope="col">Оклад</th>
+    </tr>
+  </thead>
+  <tbody>
+  {%- for em in employees %}
+    <tr>
+      <th scope="row"> {{ em.id }} </th>
+
+      <td> {{ em.fullname }} </td>
+      <td> {{ em.position }} </td>
+      <td> {{ em.day }} </td>
+      <td> {{ em.salary }} </td>
+
+    </tr>
+   {%- endfor %}
+  </tbody>
+</table>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </body>
 </html>

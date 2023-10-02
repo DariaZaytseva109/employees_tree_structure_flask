@@ -8,13 +8,13 @@
 <h1> Сотрудники </h1>
 {%- for em in employees %}
 
-    <strong> id: </strong> {{ em.id }}.   <br>
-    <strong> ФИО: </strong> {{ em.fullname }}.   <br>
-    <strong> Должность: </strong> {{ em.position }}. <br>
-    <strong> Дата:  </strong> {{ em.date }}. <br>
-    <strong> Оклад: </strong> {{ em.salary }}. <br>
-    <strong> Начальник: </strong> {{ em.boss_id }}. <br>
-    <strong> Level: </strong> {{ em.level }}. <br>
+    <strong> id: </strong> {{ em.id }}   <br>
+    <strong> ФИО: </strong> {{ em.fullname }}  <br>
+    <strong> Должность: </strong> {{ em.position }} <br>
+    <strong> Дата:  </strong> {{ em.day }} <br>
+    <strong> Оклад: </strong> {{ em.salary }} $ <br>
+    <strong> Начальник: </strong> {{ em.boss_id }} <br>
+    <strong> Уровень в иерархии: </strong> {{ em.level }} <br>
 
    <br>
 
