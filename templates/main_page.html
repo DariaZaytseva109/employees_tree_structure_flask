@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Сотрудники</title>
+    <title>Иерархия сотрудников</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-<h1> Сотрудники </h1>
+<div class="container">
+<header>
+
+<h1> Иерархия сотрудников </h1>
+    </header>
 <br>
 
-<a class="btn btn-primary" href= "{{ url_for('test') }}" role="button"> К списку </a>
+<a class="btn btn-primary" href= "{{ url_for('sort_by', argument='id') }}" role="button"> К списку </a>
 <br> <br>
 
 {%- for em in employees %}
@@ -19,6 +23,7 @@
     <strong> Должность: </strong> {{ em.position }} <br>
     <strong> Дата:  </strong> {{ em.day }} <br>
     <strong> Оклад: </strong> {{ em.salary }} $ <br>
+    <strong> Начальник id: </strong> {{ em.boss_id }}  <br>
     <strong> Уровень в иерархии: </strong> {{ em.level }} <br>
     <strong> Подчиненные:  </strong> <br>
 
@@ -31,6 +36,7 @@
                 <strong> Дата:  </strong> {{ sub.day }} <br>
 				<strong> Оклад:</strong> {{ sub.salary }} $<br>
                 <strong> Уровень в иерархии: </strong> {{ sub.level }} <br>
+                <strong> Начальник id: </strong> {{ sub.boss_id }}  <br>
 				<strong> Подчиненные:  </strong> <br>
                 <ul>
                 <br>  {%- for sub in sub.subordinates %}
@@ -41,6 +47,7 @@
                 <strong> Дата:  </strong> {{ sub.day }} <br>
 				<strong> Оклад:</strong> {{ sub.salary }} $<br>
                 <strong> Уровень в иерархии: </strong> {{ sub.level }} <br>
+                    <strong> Начальник id: </strong> {{ sub.boss_id }}  <br>
 				<strong> Подчиненные:  </strong> <br>
 
 
@@ -53,6 +60,7 @@
                 <strong> Дата:  </strong> {{ sub.day }} <br>
 				<strong> Оклад:</strong> {{ sub.salary }} $<br>
                 <strong> Уровень в иерархии: </strong> {{ sub.level }} <br>
+                         <strong> Начальник id: </strong> {{ sub.boss_id }}  <br>
 				<strong> Подчиненные:  </strong> <br>
 
 
@@ -66,6 +74,7 @@
                 <strong> Дата:  </strong> {{ sub.day }} <br>
 				<strong> Оклад:</strong> {{ sub.salary }} $<br>
                 <strong> Уровень в иерархии: </strong> {{ sub.level }} <br>
+                              <strong> Начальник id: </strong> {{ sub.boss_id }}  <br>
 				<strong> Подчиненные:  </strong> <br>
                 <br>
 
@@ -85,6 +94,7 @@
 {%- endfor %}
 </ul>
 </li>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </body>

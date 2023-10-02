@@ -45,18 +45,22 @@ def show():
     return render_template('main_page.html', employees=employees)
 
 
-@app.route(API_ROOT+'test/', methods=["GET"])
-def test():
-    employees = Employee.query.all()
-    return render_template('1.html', employees=employees)
 
-
-
-@app.route(API_ROOT+'all/', methods=["GET"])
-def show_all():
+@app.route(API_ROOT+'list/<argument>', methods=["GET"])
+def sort_by(argument):
     '''view главной страницы со списком всех работников'''
-    employees = Employee.query.all()
+    if argument == 'id':
+        employees = Employee.query.order_by(Employee.id).all()
+    elif argument == 'fullname':
+        employees = Employee.query.order_by(Employee.fullname).all()
+    elif argument == 'position':
+        employees = Employee.query.order_by(Employee.position).all()
+    elif argument == 'day':
+        employees = Employee.query.order_by(Employee.day).all()
+    elif argument == 'salary':
+        employees = Employee.query.order_by(Employee.salary).all()
     return render_template('main_page_2.html', employees=employees)
+
 
 
 
