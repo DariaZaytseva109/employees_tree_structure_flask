@@ -38,9 +38,16 @@ with app.app_context():  #Заполняю базу первыми лицами 
     a = DemoSeeder()
     a.run()
 
+@app.route(API_ROOT + 'tree/', methods=["GET"])
+def tree():
+    '''view страницы c деревом'''
+    employees = Employee_0.query.all()
+    return render_template('tree.html', employees=employees)
+
+
 @app.route(API_ROOT, methods=["GET"])
 def show():
-    '''view страницы с деревом'''
+    '''view страницы c иерархией'''
     employees = Employee_0.query.all()
     return render_template('main_page.html', employees=employees)
 
@@ -59,6 +66,8 @@ def sort_by(argument):
         employees = Employee.query.order_by(Employee.day).all()
     elif argument == 'salary':
         employees = Employee.query.order_by(Employee.salary).all()
+    elif argument == 'boss_name':
+        employees = Employee.query.order_by(Employee.boss_name).all()
     return render_template('main_page_2.html', employees=employees)
 
 

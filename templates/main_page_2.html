@@ -14,7 +14,7 @@
   </header>
 <br>
 
-<a class="btn btn-primary" href= "{{ url_for('show') }}" role="button"> К иерархии </a>
+<a class="btn btn-primary" href= "{{ url_for('tree') }}" role="button"> К иерархии </a>
 <br><br>
 
 <table class="table" >
@@ -26,7 +26,7 @@
       <th scope="col"> <a href=" {{ url_for('sort_by', argument = 'position') }} "> Должность  </a></th>
       <th scope="col"> <a href=" {{ url_for('sort_by', argument = 'day') }} "> Дата приема на работу </a></th>
       <th scope="col"> <a href=" {{ url_for('sort_by', argument = 'salary') }} "> Оклад </a></th>
-
+    <th scope="col"> <a href=" {{ url_for('sort_by', argument = 'boss_name') }} "> Начальник </a></th>
     </tr>
   </thead>
   <tbody>
@@ -38,6 +38,7 @@
       <td> {{ em.position }} </td>
       <td> {{ em.day }} </td>
       <td> {{ em.salary }} </td>
+      <td> {{ em.boss_name }} </td>
 
     </tr>
    {%- endfor %}

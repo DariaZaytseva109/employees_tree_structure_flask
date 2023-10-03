@@ -23,9 +23,8 @@
     <strong> Должность: </strong> {{ em.position }} <br>
     <strong> Дата:  </strong> {{ em.day }} <br>
     <strong> Оклад: </strong> {{ em.salary }} $ <br>
-    <strong> Начальник id: </strong> {{ em.boss_id }}  <br>
+    <strong> Начальник: </strong> {{ em.boss_name }}  <br>
     <strong> Уровень в иерархии: </strong> {{ em.level }} <br>
-    <strong> Подчиненные:  </strong> <br>
 
 <ul>
   <br> {%- for sub in em.subordinates %}
@@ -36,8 +35,8 @@
                 <strong> Дата:  </strong> {{ sub.day }} <br>
 				<strong> Оклад:</strong> {{ sub.salary }} $<br>
                 <strong> Уровень в иерархии: </strong> {{ sub.level }} <br>
-                <strong> Начальник id: </strong> {{ sub.boss_id }}  <br>
-				<strong> Подчиненные:  </strong> <br>
+                <strong> Начальник: </strong> {{ sub.boss_name }}  <br>
+
                 <ul>
                 <br>  {%- for sub in sub.subordinates %}
 
@@ -47,8 +46,8 @@
                 <strong> Дата:  </strong> {{ sub.day }} <br>
 				<strong> Оклад:</strong> {{ sub.salary }} $<br>
                 <strong> Уровень в иерархии: </strong> {{ sub.level }} <br>
-                    <strong> Начальник id: </strong> {{ sub.boss_id }}  <br>
-				<strong> Подчиненные:  </strong> <br>
+                    <strong> Начальник: </strong> {{ sub.boss_name }}  <br>
+
 
 
                      <ul>
@@ -60,8 +59,8 @@
                 <strong> Дата:  </strong> {{ sub.day }} <br>
 				<strong> Оклад:</strong> {{ sub.salary }} $<br>
                 <strong> Уровень в иерархии: </strong> {{ sub.level }} <br>
-                         <strong> Начальник id: </strong> {{ sub.boss_id }}  <br>
-				<strong> Подчиненные:  </strong> <br>
+                         <strong> Начальник: </strong> {{ sub.boss_name }}  <br>
+
 
 
 
@@ -74,8 +73,8 @@
                 <strong> Дата:  </strong> {{ sub.day }} <br>
 				<strong> Оклад:</strong> {{ sub.salary }} $<br>
                 <strong> Уровень в иерархии: </strong> {{ sub.level }} <br>
-                              <strong> Начальник id: </strong> {{ sub.boss_id }}  <br>
-				<strong> Подчиненные:  </strong> <br>
+                              <strong> Начальник: </strong> {{ sub.boss_name }}  <br>
+
                 <br>
 
 
