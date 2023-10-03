@@ -4,7 +4,7 @@ from flask_seeder.generator import Generator
 from logic import Employee_logic
 
 
-AMOUNT = 500  #количество генерируемых seeder'ом работников
+AMOUNT = 1000  #количество генерируемых seeder'ом работников
 
 
 class MyPosition(Generator):
@@ -44,9 +44,9 @@ class DemoSeeder(Seeder):
         "fullname": MyName(),
         "position": MyPosition(),
         "salary": generator.Integer(start=800, end=10000),
-        "boss_id": generator.Integer(start=3, end=7)
+        "boss_id": generator.Integer(start=2, end=7)
         }
     )
 
-    for user in faker.create(AMOUNT):
-      user.add_employee()
+    for elem in faker.create(AMOUNT):
+        elem.add_employee()

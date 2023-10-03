@@ -25,29 +25,37 @@
       {%- for sub in em.subordinates %}
       <div> {{ sub.fullname }}
 
-      <details><summary></summary>
+      {%- if sub.subordinates %}
+          <details><summary></summary>
           {%- for sub in sub.subordinates %}
           <div> {{ sub.fullname }}
+              {%- if sub.subordinates  %}
                   <details><summary></summary>
           {%- for sub in sub.subordinates %}
           <div> {{ sub.fullname  }}
+              {%- if sub.subordinates   %}
                   <details><summary></summary>
           {%- for sub in sub.subordinates %}
           <div> {{ sub.fullname  }}
+              {%- if sub.subordinates  %}
                   <details><summary></summary>
           {%- for sub in sub.subordinates %}
           <div> {{ sub.fullname  }}
 
               {%- endfor %}
-                  </details>
+              </details>
+              {%- endif %}
               </div>
               {%- endfor %}
               </details>
+              {%- endif %}
               </div>
               {%- endfor %}
               </details>
+              {%- endif %}
               </div>
-{%- endfor %}
+
+{%- endfor %} {%- endif %}
 </details>
 </div>
 

@@ -4,7 +4,7 @@ from flask import Flask, render_template, request
 from flask_seeder import FlaskSeeder
 
 from logic import Employee_logic
-from model import Employee_0, db, Employee
+from model import db, Employee
 from seeds.demo import DemoSeeder
 
 
@@ -41,15 +41,8 @@ with app.app_context():  #Заполняю базу первыми лицами 
 @app.route(API_ROOT + 'tree/', methods=["GET"])
 def tree():
     '''view страницы c деревом'''
-    employees = Employee_0.query.all()
+    employees = db.session.query(Employee).filter_by(id=1)
     return render_template('tree.html', employees=employees)
-
-
-@app.route(API_ROOT, methods=["GET"])
-def show():
-    '''view страницы c иерархией'''
-    employees = Employee_0.query.all()
-    return render_template('main_page.html', employees=employees)
 
 
 
