@@ -4,7 +4,7 @@ from flask_seeder.generator import Generator
 from logic import Employee_logic
 
 
-AMOUNT = 1000  #количество генерируемых seeder'ом работников
+AMOUNT = 50000  #количество генерируемых seeder'ом работников
 
 
 class MyPosition(Generator):

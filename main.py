@@ -38,7 +38,7 @@ with app.app_context():  #Заполняю базу первыми лицами 
     a = DemoSeeder()
     a.run()
 
-@app.route(API_ROOT + 'tree/', methods=["GET"])
+@app.route(API_ROOT, methods=["GET"])
 def tree():
     '''view страницы c деревом'''
     employees = db.session.query(Employee).filter_by(id=1)
@@ -46,7 +46,7 @@ def tree():
 
 
 
-@app.route(API_ROOT+'list/<argument>', methods=["GET"])
+@app.route(API_ROOT+'list/<argument>/', methods=["GET"])
 def sort_by(argument):
     '''view главной страницы со списком всех работников'''
     if argument == 'id':
@@ -68,7 +68,7 @@ def sort_by(argument):
 
 @app.route(API_ROOT, methods=["POST"])
 def create():
-    '''создание работника'''
+    '''создание работника - для теста с помощью Postman'''
     data = request.get_data().decode('utf-8')
     lst = data.split()
     fullname = lst[0]
