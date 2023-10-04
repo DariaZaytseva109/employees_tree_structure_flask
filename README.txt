@@ -17,7 +17,7 @@
 Стек: Flask, Flask-SQLAlchemy, flask_seeder, Twitter Bootstrap, Postman, SQLite.
 
 
-Стартовая страница: /employees/v1/tree/
+Стартовая страница: /employees/v1/
 Требуется запустить файл main.py
 Необходимые пакеты в файле requirements.txt
 
